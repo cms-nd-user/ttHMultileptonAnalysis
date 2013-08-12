@@ -3313,10 +3313,8 @@ int main ( int argc, char ** argv )
           lep2SF = beanHelper.GetMuonSF(muonsSelected.at(1), secondLep);
         }
         else {
-            lep1SF = 1;
-            lep2SF = 2;
-            //AW          lep1SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
-            //AW          lep2SF = beanHelper.GetMuonSF(muonsSelected.at(1), muonID::muonLoose);
+            lep1SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
+            lep2SF = beanHelper.GetMuonSF(muonsSelected.at(1), muonID::muonLoose);
         }          
           
         if (debug_) cout << "DEBUG: Calling double muon trigger SF...";
@@ -3820,8 +3818,7 @@ int main ( int argc, char ** argv )
           lep2SF = beanHelper.GetElectronSF(electronsSelected.at(0), theEleType);
         }
         else {
-            lep1SF = 1;
-            //AW          lep1SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
+            lep1SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
             lep2SF = beanHelper.GetElectronSF(electronsSelected.at(0), electronID::electronLoose);
         }          
           
@@ -4074,20 +4071,13 @@ int main ( int argc, char ** argv )
           lep1SF = beanHelper.GetElectronSF(electronsSelected.at(0), theEleType);
         }
         else {
-            lep2SF = 1;
-            //AW          lep2SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
+            lep2SF = beanHelper.GetMuonSF(muonsSelected.at(0), muonID::muonLoose);
             lep1SF = beanHelper.GetElectronSF(electronsSelected.at(0), electronID::electronLoose);
         }          
           
         if (debug_) cout << "DEBUG Calling muon ele trigger SF ... ";
         triggerSF = beanHelper.GetMuonEleTriggerSF(muonsSelected.at(0), electronsSelected.at(0));
         if (debug_) cout << "RETUrNEd!" << endl;
-
-        //newSingleEleSF = beanHelper.TestSingleEleTriggerNew(electronsSelected.at(0));
-        //oldSingleEleSF = beanHelper.TestSingleEleTriggerOld(electronsSelected.at(0));
-
-        //newSingleMuSF = beanHelper.TestSingleMuonTriggerNew(muonsSelected.at(0));
-        //oldSingleMuSF = beanHelper.TestSingleMuonTriggerOld(muonsSelected.at(0));
 
 	    lep2Pt = muonsSelected.at(0).pt;
 	    lep1Pt = electronsSelected.at(0).pt;
