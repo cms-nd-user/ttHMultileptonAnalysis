@@ -855,6 +855,7 @@ int main ( int argc, char ** argv )
     floatBranches["met"] = new float(0.0);
     floatBranches["unc_met"] = new float(0.0);
     floatBranches["MHT"] = new float(0.0);
+    floatBranches["met_LD"] = new float(0.0);
 
     //lepton variables
     floatBranches["lep1Pt"] = new float(0.0);
@@ -4477,6 +4478,7 @@ int main ( int argc, char ** argv )
       float MT_MHT_leplep = MHT_leplep_vect_transverse.M();
       float MT_MHT_lep1 = MHT_lep1_vect.M();
       float MT_MHT_lep2 = MHT_lep2_vect.M();
+      float met_LD = met * 0.00397 + MHT * 0.00265;
 
       if (debug_) std::cout << "Finished setting vectors" << std::endl;
 
@@ -5280,6 +5282,7 @@ int main ( int argc, char ** argv )
         *(floatBranches["met"]) = met;
         *(floatBranches["unc_met"]) = unc_met;
         *(floatBranches["MHT"]) = MHT;
+        *(floatBranches["met_LD"]) = met_LD;
 
         //lepton variables
         *(floatBranches["lep1Pt"]) =  lep1Pt;
