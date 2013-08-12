@@ -1558,7 +1558,6 @@ int main ( int argc, char ** argv )
   std::cout << "\n" << std::endl;
 
   int cnt = 0;
-  int num_events_pass_cern_selection = 0;
 
   bool verbose = false;
   
@@ -5936,24 +5935,12 @@ int main ( int argc, char ** argv )
         std::endl;
 
 
-      bool pass_pt_20_20 = ((lep1Pt > 20) && (lep2Pt > 20));
-      bool pass_mass_lep_lep = (mass_leplep > 12);
-      bool pass_btags = ((numTaggedJets >= 1) || (numLooseTaggedJets >= 2));
-      bool pass_num_jets = (numJets >= 4);
-
-      bool pass_cern_selection = (TwoMuon && pass_pt_20_20 && pass_mass_lep_lep && pass_btags && pass_num_jets);
-      if (pass_cern_selection) num_events_pass_cern_selection++;
-      //AW
-      
-
       } // end neural net selection
 
       
       if (verbose) std::cout << "about to fill tree" <<std::endl;
       
       summaryTree->Fill();
-
-      std::cout << "count: " << cnt << " passed: " << num_events_pass_cern_selection << std::endl;
 
     } // end loop over events
 
