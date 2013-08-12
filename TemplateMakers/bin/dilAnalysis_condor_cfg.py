@@ -73,8 +73,10 @@ elif iYear == '2012_52x':
     listFileName = "../../listsForSkims2012_v3_hadoop/" + sampleNameCL + ".list"
 elif iYear == '2012_53x':
 	#listFileName = "/afs/crc.nd.edu/user/a/abrinke1/BEANsHelper/CMSSW_5_3_2_patch5/src/BEAN/listsForSkims2012_53x_v1/" + sampleNameCL + ".list"
-    listFileName = "../../listsForSkims2012_53x_v2_hadoop/" + sampleNameCL + ".list"
-
+#     listFileName = "../../listsForSkims2012_53x_v2_hadoop/" + sampleNameCL + ".list"
+    #listFileName = "../../listsUnskimmed2013_53xOn53x_V04_CV02/" + sampleNameCL + ".list"
+    listFileName = "../../listsForSkims2012_53x_v3_hadoop/" + sampleNameCL + ".list"
+    
 # read in all files in the list
 print "Reading file names from list: %s" % listFileName
 listFile = open(listFileName)
@@ -156,7 +158,8 @@ process.dilAnalysis = cms.PSet(
 	jes = cms.int32(iJes),
 	jer = cms.int32(iJer),
 	applySelectionJets = cms.bool(True),
-	applySelectionSameSign = cms.bool(False),
+	applySelectionSameSign = cms.bool(True),
+	useSideLeptons = cms.int32(1), #0 = regular selection, 1 = CERN tight, 2 = CERN sideband, 3 = CERN double-sideband. 4 = sideband inclusive
 	#btagFile = cms.FileInPath("mc_btag_efficiency_v4_histo.root"),
 	#puFile = cms.FileInPath("collect_pileup_histos_v1_histo.root"),
 	sampleName = cms.string(sampleNameCL),
