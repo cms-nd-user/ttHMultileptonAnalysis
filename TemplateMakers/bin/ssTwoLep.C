@@ -205,6 +205,10 @@ int main (int argc, char** argv) {
    DBCorrectedRelIsoDR04s myDBCorrectedRelIsoDR04s(&lepHelper, 4);
    kinVars.push_back(&myDBCorrectedRelIsoDR04s);
 
+   HiggsDecayType hdecay(&lepHelper);
+   kinVars.push_back(&hdecay);
+   
+
 //    LepTrackCharges myLepTrackCharges(2);
 //    kinVars.push_back(&myLepTrackCharges);
 //    myLepTrackCharges.setCut("SS");
